@@ -1,5 +1,4 @@
 from django.shortcuts import render
-import pyrebase
 from resume.firebase import database
 
 def index(request):
