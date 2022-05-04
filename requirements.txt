@@ -3,3 +3,4 @@ django-distill==2.9.2
 pre-commit==2.17.0
 pylint==2.12.2
 Pyrebase==3.0.27
+urllib3==1.26.8
