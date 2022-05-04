@@ -13,6 +13,8 @@ jobs:
         python-version: ["3.9"]
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GHA_TOKEN }}
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:
@@ -31,8 +33,7 @@ jobs:
           FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET }}
         run: |
           python manage.py migrate
-          python manage.py collectstatic --noinput
-          python manage.py distill-local docs --force
+          make
       - name: Git preparation
         run: |
           git config --global user.name github-actions
@@ -42,7 +43,8 @@ jobs:
         run: |
           git add static/ docs/
           git stash
-          git checkout -b release/gh_pages
-          git stash pop
-          git commit -m "Update the content" ||  true
-          git push --force origin HEAD:$GITHUB_REF || true
+          git fetch --all
+          git checkout -b release/gh_pages --track origin/release/gh_pages
+          git checkout stash -- static/ docs/
+          git commit -m "Update the content"
+          git push --force
