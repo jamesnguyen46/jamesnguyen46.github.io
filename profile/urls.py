@@ -1,5 +1,5 @@
+from profile import views
 from django_distill import distill_path
-from resume import views
 
 
 def get_index():
