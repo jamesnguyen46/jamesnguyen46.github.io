@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block page_title %}{% endblock %}</title>
+    {% block page_meta %}{% endblock %}
+    <!-- Load icon, font, css ...  -->
+    {% block load_resources %}{% endblock %}
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header">
+        {% block header %}{% endblock %}
+    </header>
+    <!-- Show a button at the bottom of pages -->
+    {% block top_button %}{% endblock %}
+    <!-- Hero section : to show a background image, or video, or illustrations, or animations, with text... -->
+    {% block hero %}{% endblock %}
+    <!-- Content -->
+    <main id="content">
+        {% block content %}{% endblock %}
+    </main>
+    <!-- Footer -->
+    <footer id="footer">
+        {% block footer %}{% endblock %}
+    </footer>
+    <!-- Page loading -->
+    {% block loading %}{% endblock %}
+    <!-- Show a button at the bottom of pages -->
+    {% block bottom_button %}{% endblock %}
+    <!--  Load js files-->
+    {% block load_script %}{% endblock %}
+</body>
+
+</html>

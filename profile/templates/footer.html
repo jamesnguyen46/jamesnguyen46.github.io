@@ -1,0 +1,13 @@
+<div class="footer_container">
+    <h3>{{ profile.info.first_name }} {{ profile.info.last_name }}</h3>
+    <p>{{ profile.favorite_quote.quote }} - {{ profile.favorite_quote.author }} -</p>
+    {% if profile.social_links %}
+    <div class="social-links">
+        {% for key, value in profile.social_links.items %}
+        {% if value %}
+        <a href="{{ value }}" class="{{ key }}"><i class="bx bxl-{{ key }}"></i></a>
+        {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
