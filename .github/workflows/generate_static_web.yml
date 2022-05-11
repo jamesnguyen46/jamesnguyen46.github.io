@@ -44,6 +44,7 @@ jobs:
           FIREBASE_DATABASE_URL: ${{ secrets.FIREBASE_DATABASE_URL }}
           FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET }}
         run: |
+          source .venv/bin/activate
           python manage.py migrate
           make
       - name: Git preparation
