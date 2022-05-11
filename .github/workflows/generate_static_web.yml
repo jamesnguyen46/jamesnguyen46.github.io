@@ -3,6 +3,9 @@ name: Generate static website
 on:
   # Trigger manual
   workflow_dispatch:
+  push:
+    tags:
+      - v*.*.*
 
 jobs:
   generate-static-web:
@@ -12,12 +15,12 @@ jobs:
       matrix:
         python-version: ["3.9"]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: ${{ secrets.GHA_TOKEN }}
       - name: Set up Python ${{ matrix.python-version }}
         id: setup-python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install Poetry
@@ -52,6 +55,14 @@ jobs:
           git config --global user.name github-actions
           git config --global user.email '$GITHUB_ACTOR@users.noreply.github.com'
           git remote set-url origin https://x-access-token:${{ secrets.GHA_TOKEN }}@github.com/$GITHUB_REPOSITORY
+      - name: Generate commit message for PUSH event
+        if: github.event_name == 'push'
+        run: |
+          echo "COMMIT_MSG=\"[Auto] (${GITHUB_REF#refs/*/}) Deploy page\"" >> $GITHUB_ENV
+      - name: Generate commit message for DISPATCH event
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          echo "COMMIT_MSG=\"[Manual] Deploy content\"" >> $GITHUB_ENV
       - name: Commit to release/gh_pages
         run: |
           git add static/ docs/
@@ -59,5 +70,5 @@ jobs:
           git fetch --all
           git checkout -b release/gh_pages --track origin/release/gh_pages
           git checkout stash -- static/ docs/
-          git commit -m "Update the content"
+          git commit -m ${{ env.COMMIT_MSG }}
           git push --force
