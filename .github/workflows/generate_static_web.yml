@@ -56,11 +56,11 @@ jobs:
           git config --global user.email '$GITHUB_ACTOR@users.noreply.github.com'
           git remote set-url origin https://x-access-token:${{ secrets.GHA_TOKEN }}@github.com/$GITHUB_REPOSITORY
       - name: Generate commit message for PUSH event
-        if: $GITHUB_EVENT_NAME == 'push'
+        if: github.event_name == 'push'
         run: |
           echo "COMMIT_MSG=\"[Auto] (${GITHUB_REF#refs/*/}) Deploy page\"" >> $GITHUB_ENV
       - name: Generate commit message for DISPATCH event
-        if: $GITHUB_EVENT_NAME == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch'
         run: |
           echo "COMMIT_MSG=\"[Manual] Deploy content\"" >> $GITHUB_ENV
       - name: Commit to release/gh_pages
