@@ -72,6 +72,13 @@ WSGI_APPLICATION = "profile_project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
+}
+
 FIREBASE_CONFIG = {
     "apiKey": env.get("FIREBASE_API_KEY"),
     "authDomain": env.get("FIREBASE_AUTH_DOMAIN"),
