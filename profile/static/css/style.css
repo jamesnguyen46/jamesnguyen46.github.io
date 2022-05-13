@@ -366,23 +366,43 @@ section {
 /*--------------------------------------------------------------
 # Experience
 --------------------------------------------------------------*/
+.experience .company {
+  width: 100%;
+  margin-bottom: 20px;
+}
 .experience .company-name {
-  font-size: 26px;
-  font-weight: 700;
+  display: flex;
+  align-items: center;
   margin-top: 20px;
   margin-bottom: 10px;
+}
+.experience .company-name .logo {
+  display: flex;
+  overflow: hidden;
+  width: 26px;
+  height: 26px;
+  margin-right: 10px;
+}
+.experience .company-name h3 {
+  font-size: 26px;
+  font-weight: 700;
   color: #45505b;
+  margin-bottom: 0;
 }
 .experience .company-location {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   gap: 5px;
+  margin-bottom: 10px;
+}
+.experience .company-location p {
+  margin-bottom: 0;
 }
 .experience .company-description {
   font-style: italic;
   color: #808080;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .experience .job-item {
   padding: 0 0 20px 20px;

@@ -10,8 +10,13 @@
         <div class="row">
             {% for key1, company in experience.items reversed %}
             {% if "company" in key1 %}
-            <div class="container">
-                <h3 class="company-name">{{ company.name }}</h3>
+            <div class="company">
+                <div class="company-name">
+                    <div class="logo">
+                        <img src="{{ company.logo }}" alt="{{ company.name }} logo"/>
+                    </div>
+                    <h3>{{ company.name }}</h3>
+                </div>
                 <div class="company-location">
                     <i class="bx bx-current-location"></i>
                     <p>{{ company.location }}</p>
