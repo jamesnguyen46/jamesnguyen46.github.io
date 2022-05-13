@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block page_title %}{{ profile.info.first_name }} {{ profile.info.last_name }}'s page{% endblock %}
+{% block page_title %}{{ profile.info.first_name }} {{ profile.info.last_name }}{% endblock %}
 
 {% block page_meta %}
 <meta content="" name="description">
@@ -27,6 +27,9 @@
 {% block content %}
     {% if flags.show_about_section %}
         {% include "about.html" with profile=profile %}
+    {% endif %}
+    {% if flags.show_experience_section %}
+        {% include "experience.html" with profile=profile experience=experience%}
     {% endif %}
 {% endblock %}
 

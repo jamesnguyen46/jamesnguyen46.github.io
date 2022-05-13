@@ -1,0 +1,44 @@
+{% load timestamp_to_time %}
+<section id="experience" class="experience">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Experience</h2>
+            <p>{{ experience.summary }}</p>
+        </div>
+
+        <div class="row">
+            {% for key1, company in experience.items reversed %}
+            {% if "company" in key1 %}
+            <div class="container">
+                <h3 class="company-name">{{ company.name }}</h3>
+                <div class="company-location">
+                    <i class="bx bx-current-location"></i>
+                    <p>{{ company.location }}</p>
+                </div>
+                <p class="company-description">{{ company.description }}</p>
+                {% for key2, job in company.items reversed %}
+                {% if "job" in key2 %}
+                <div class="job-item">
+                    {% if job.end %}
+                    <h4>{{ job.start|timestamp_to_time|date:"M, Y" }} - {{ job.end|timestamp_to_time|date:"M, Y" }}</h4>
+                    {% else %}
+                    <h4>{{ job.start|timestamp_to_time|date:"M, Y" }} - present</h4>
+                    {% endif %}
+                    <h5>{{ job.title }}</h5>
+                    {% for key3, desc in job.items reversed %}
+                    {% if "desc" in key3 %}
+                    <ul>
+                        <li>{{ desc }}</li>
+                    </ul>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
