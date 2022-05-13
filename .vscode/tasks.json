@@ -6,7 +6,7 @@
         {
             "label": "Install development dependencies",
             "type": "shell",
-            "command": "rm -rf .venv && poetry install",
+            "command": "rm -rf .venv && poetry config virtualenvs.in-project true && poetry install --no-root",
             "options": {
                 "cwd": "${workspaceFolder}"
             },
