@@ -1,0 +1,29 @@
+<section id="skills" class="skills section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Skills</h2>
+            <p>{{ skills.description }}</p>
+        </div>
+
+        <div class="row skills-content">
+            {% for key, value in skills.items %}
+            {% if "progress" in value.type %}
+            <div class="progress col-lg-6">
+                <span class="skill">{{ value.name }}<i class="val">{{ value.current_value }}%</i></span>
+                <div class="progress-bar-wrap">
+                    <div
+                        class="progress-bar"
+                        role="progressbar"
+                        aria-valuenow="{{ value.current_value }}"
+                        aria-valuemin="0"
+                        aria-valuemax="100">
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
