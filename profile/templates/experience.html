@@ -11,12 +11,14 @@
             {% for key1, company in experience.items reversed %}
             {% if "company" in key1 %}
             <div class="company">
-                <div class="company-name">
-                    <div class="logo">
-                        <img src="{{ company.logo }}" alt="{{ company.name }} logo"/>
+                <a href="{{ company.homepage }}">
+                    <div class="company-name">
+                        <div class="logo">
+                            <img src="{{ company.logo }}" alt="{{ company.name }} logo"/>
+                        </div>
+                        <h3 href="gooogle.com">{{ company.name }}</h3>
                     </div>
-                    <h3>{{ company.name }}</h3>
-                </div>
+                </a>
                 <div class="company-location">
                     <i class="bx bx-current-location"></i>
                     <p>{{ company.location }}</p>
@@ -31,13 +33,13 @@
                     <h4>{{ job.start|timestamp_to_time|date:"M, Y" }} - present</h4>
                     {% endif %}
                     <h5>{{ job.title }}</h5>
-                    {% for key3, desc in job.items reversed %}
-                    {% if "desc" in key3 %}
                     <ul>
-                        <li>{{ desc }}</li>
+                        {% for key3, desc in job.items reversed %}
+                        {% if "desc" in key3 %}
+                        <li>{{ desc|safe }}</li>
+                        {% endif %}
+                        {% endfor %}
                     </ul>
-                    {% endif %}
-                    {% endfor %}
                 </div>
                 {% endif %}
                 {% endfor %}
