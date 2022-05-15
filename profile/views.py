@@ -12,5 +12,6 @@ def index(request):
             "profile": FIREBASE_DATABASE.child("profile").get().val(),
             "experience": FIREBASE_DATABASE.child("experience").get().val(),
             "skills": FIREBASE_DATABASE.child("skills").get().val(),
+            "testimonials": FIREBASE_DATABASE.child("testimonials").get().val(),
         },
     )

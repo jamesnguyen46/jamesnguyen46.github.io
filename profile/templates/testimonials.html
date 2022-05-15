@@ -1,0 +1,32 @@
+{% load static %}
+<section id="testimonials" class="testimonials section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Testimonials</h2>
+        </div>
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper">
+                {% for item in testimonials %}
+                {% if item %}
+                <div class="swiper-slide">
+                    <div class="testimonial-item">
+                        <img src="{{ item.avatar }}" class="testimonial-img" alt="{{ item.who }} image">
+                        <h3>{{ item.who }}</h3>
+                        <h4>{{ item.job_title }}</h4>
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                            {{ item.quote }}
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+    </div>
+</section>
