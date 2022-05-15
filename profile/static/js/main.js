@@ -148,7 +148,7 @@
   /**
    * Skills animation
    */
-  let skilsContent = select('.skills-content');
+  let skilsContent = select('.skills-progress');
   if (skilsContent) {
     new Waypoint({
       element: skilsContent,

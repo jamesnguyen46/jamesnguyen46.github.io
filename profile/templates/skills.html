@@ -1,3 +1,4 @@
+{% load tag_utils %}
 <section id="skills" class="skills section-bg">
     <div class="container" data-aos="fade-up">
 
@@ -6,24 +7,41 @@
             <p>{{ skills.description }}</p>
         </div>
 
-        <div class="row skills-content">
-            {% for key, value in skills.items %}
-            {% if "progress" in value.type %}
+        {% for key, value in skills.items %}
+        <h3>{{ value.name }}</h3>
+        {% if "progress" in key %}
+        <div class="row skills-progress">
+            {% for sub_key, sub_value in value.items.items %}
             <div class="progress col-lg-6">
-                <span class="skill">{{ value.name }}<i class="val">{{ value.current_value }}%</i></span>
+                <span class="skill">{{ sub_key }}<i class="val">{{ sub_value }}%</i></span>
                 <div class="progress-bar-wrap">
-                    <div
-                        class="progress-bar"
-                        role="progressbar"
-                        aria-valuenow="{{ value.current_value }}"
-                        aria-valuemin="0"
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{ sub_value }}" aria-valuemin="0"
                         aria-valuemax="100">
                     </div>
                 </div>
             </div>
+            {% endfor %}
+        </div>
+        {% elif "tag" in key %}
+        <div class="skills-tag">
+            <ul>
+                {% for item in value.value|split:"," %}
+                <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% else %}
+        <div class="row skills-text">
+            {% for sub_key, text in value.items %}
+            {% if "str" in sub_key %}
+            <div class="col-lg-6">
+                <li>{{ text|safe }}</li>
+            </div>
             {% endif %}
             {% endfor %}
         </div>
+        {% endif %}
+        {% endfor %}
 
     </div>
 </section>
