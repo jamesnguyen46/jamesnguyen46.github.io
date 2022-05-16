@@ -36,6 +36,9 @@
         {% include "skills.html" with skills=skills %}
     {% endif %}
 
+    {% if flags.show_testimonials_section %}
+        {% include "testimonials.html" with testimonials=testimonials data="thach" %}
+    {% endif %}
 {% endblock %}
 
 {% block loading %}
