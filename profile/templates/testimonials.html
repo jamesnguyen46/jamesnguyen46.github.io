@@ -4,20 +4,21 @@
 
         <div class="section-title">
             <h2>Testimonials</h2>
+            <p>{{ testimonials.description }}</p>
         </div>
 
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
             <div class="swiper-wrapper">
-                {% for item in testimonials %}
-                {% if item %}
+                {% for key, value in testimonials.items %}
+                {% if "who" in key %}
                 <div class="swiper-slide">
                     <div class="testimonial-item">
-                        <img src="{{ item.avatar }}" class="testimonial-img" alt="{{ item.who }} image">
-                        <h3>{{ item.who }}</h3>
-                        <h4>{{ item.job_title }}</h4>
+                        <img src="{{ value.avatar }}" class="testimonial-img" alt="{{ value.name }} image">
+                        <h3>{{ value.name }}</h3>
+                        <h4>{{ value.job_title }}</h4>
                         <p>
                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                            {{ item.quote }}
+                            {{ value.quote|safe }}
                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                         </p>
                     </div>
