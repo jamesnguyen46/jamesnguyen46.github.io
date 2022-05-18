@@ -83,4 +83,8 @@ jobs:
           FIREBASE_DATABASE_URL: ${{ secrets.FIREBASE_DATABASE_URL }}
           FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET }}
         run: |
-          make gen
+          source .venv/bin/activate
+          rm -rf static docs
+          python manage.py migrate
+          python manage.py collectstatic --noinput
+          python manage.py distill-local --force
