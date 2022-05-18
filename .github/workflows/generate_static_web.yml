@@ -48,8 +48,10 @@ jobs:
           FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET }}
         run: |
           source .venv/bin/activate
+          rm -rf static docs
           python manage.py migrate
-          make
+          python manage.py collectstatic --noinput
+          python manage.py distill-local --force
       - name: Git preparation
         run: |
           git config --global user.name github-actions
