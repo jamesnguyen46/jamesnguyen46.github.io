@@ -94,18 +94,23 @@ This project use realtime database to store the personal information. Firebase d
 ### Experience
 
 ```json
+// --------------- NOTE ------------------
+//  + "company" key : can create many with the name : "company1", "company2", ...
+//  + "job" key : can create many with the name : "job1", "job2", ...
+//  + "start", "emd" key : timestamp
+// ---------------------------------------
 "experience": {
     "summary": "",
-    "company": {                    // Can create many with the name : "company1", "company2", ...
+    "company": {
         "description": "",
         "homepage": "",
         "name": "",
         "location": "",
         "logo": "",
-        "job": {                    // Can create many with the name : "job1", "job2", ...
+        "job": {
             "title": "",
-            "start": 1234567890,    // Timestamp
-            "end": 1234567890,      // Timestamp
+            "start": 1234567890,
+            "end": 1234567890ß
         }
     }
 }
@@ -114,35 +119,50 @@ This project use realtime database to store the personal information. Firebase d
 ### Skills
 
 ```json
-"skills": {
-    "description": "",
-    "1_text": {                     // Can create many with the name : "1_text1", "1_text2", ...
-        "name": "",
-        "str": ""                   // Can create many with the name : "str1", "str2", ...
-    },
-    "2_progress": {                 // Can create many with the name : "2_progress1", "2_progress2", ...
-        "name": "",
-        "items": {
-            "key": "value"          // Key is skill name, value is progress percent. Example: java:70, kotlin:80
-        }
-    },
-    "3_tag": {                      // Can create many with the name : "3_tag1", "3_tag2", ...
-        "name": "",
-        "value": ""                  // Comma-separated values. Example : java, kotlin, dart, swift
-    }
-}
-
+// --------------- NOTE ------------------
+//  + "1_text" key : can create many with the name : "1_text1", "1_text2", ...
+//  + "1_text.str" key : can create many with the name : "str1", "str2", ...
+//
+//  + "2_progress" key : can create many with the name : "2_progress1", "2_progress2", ...
+//  + "<key>": "<value>" : key is skill name, value is progress percent. Example: java:70, kotlin:80
+//
+//  + "3_tag" key : can create many with the name : "3_tag1", "3_tag2", ...
+//  + "3_tag.value" key : comma-separated values. Example : java, kotlin, dart, swift
+//
+//  + The number in front of "text", "progress", "tag" letter is the display order.
+//  + "text", "progress", "tag" are the name of UI style.
+// ---------------------------------------
 // NOTE
 //    - The number in front of "text", "progress", "tag" letter is the display order.
 //    - "text", "progress", "tag" are the name of UI style.
+"skills": {
+    "description": "",
+    "1_text": {
+        "name": "",
+        "str": ""
+    },
+    "2_progress": {
+        "name": "",
+        "items": {
+            "<key>": "<value>"
+        }
+    },
+    "3_tag": {
+        "name": "",
+        "value": ""
+    }
+}
 ```
 
 ### Testimonial
 
 ```json
+// --------------- NOTE ------------------
+//  + "who" key : can create many with the name : "who1", "who2", ...
+// ---------------------------------------
 "testimonials": {
     "description": "",
-    "who": {                        // Can create many with the name : "who1", "who2", ...
+    "who": {
         "name": "",
         "avatar": "",
         "job_title": "",
