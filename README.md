@@ -110,7 +110,7 @@ This project use realtime database to store the personal information. Firebase d
         "job": {
             "title": "",
             "start": 1234567890,
-            "end": 1234567890ß
+            "end": 1234567890
         }
     }
 }
