@@ -27,8 +27,17 @@
     {% if flags.show_about_section %}
         {% include "about.html" with profile=profile %}
     {% endif %}
+
     {% if flags.show_experience_section %}
         {% include "experience.html" with profile=profile experience=experience%}
+    {% endif %}
+
+    {% if flags.show_skill_section %}
+        {% include "skills.html" with skills=skills %}
+    {% endif %}
+
+    {% if flags.show_testimonials_section %}
+        {% include "testimonials.html" with testimonials=testimonials data="thach" %}
     {% endif %}
 {% endblock %}
 
