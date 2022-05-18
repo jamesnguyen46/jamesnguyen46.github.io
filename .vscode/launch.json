@@ -5,18 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch Chrome",
-            "request": "launch",
-            "type": "chrome",
-            "url": "http://localhost:8000",
-            "webRoot": "${workspaceFolder}"
-        },
-        {
-            "name": "Python: Django",
+            "name": "Django : run debug server",
             "type": "python",
             "request": "launch",
+            "preLaunchTask": "Install development dependencies",
             "program": "${workspaceFolder}/manage.py",
-            "envFile": "${workspaceFolder}/.vscode/.env",
+            "envFile": "${workspaceFolder}/dev.env",
             "args": [
                 "runserver"
             ],

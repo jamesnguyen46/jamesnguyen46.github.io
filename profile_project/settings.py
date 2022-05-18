@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env.get("DJANGO_SECRET_KEY")
 DEBUG = env.get("DJANGO_DEBUG", "False").lower() in ("true", "1", "t")
 
-ALLOWED_HOSTS = [".github.io"] if not DEBUG else []
+ALLOWED_HOSTS = [".github.io"] if not DEBUG else ["*"]
 
 
 # Application definition

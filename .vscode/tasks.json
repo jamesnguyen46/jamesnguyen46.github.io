@@ -1,12 +1,50 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
         {
             "label": "Install development dependencies",
             "type": "shell",
-            "command": "rm -rf .venv && poetry config virtualenvs.in-project true && poetry install --no-root",
+            "command": "make active_env",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+        },
+        {
+            "label": "Generate static site",
+            "type": "shell",
+            "dependsOn": "Remove generated folders",
+            "command": "make gen",
+            "options": {
+                "cwd": "${workspaceFolder}",
+
+            },
+            "problemMatcher": [],
+        },
+        {
+            "label": "Remove the generated folders",
+            "type": "shell",
+            "dependsOn": "Remove generated folders",
+            "command": "make clean",
+            "options": {
+                "cwd": "${workspaceFolder}",
+
+            },
+            "problemMatcher": [],
+        },
+        {
+            "label": "PreCommit - all files",
+            "type": "shell",
+            "command": "source .venv/bin/activate && pre-commit run --verbose --all-files --show-diff-on-failure",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+        },
+        {
+            "label": "PreCommit - files have changed",
+            "type": "shell",
+            "command": "source .venv/bin/activate && pre-commit run --verbose --show-diff-on-failure",
             "options": {
                 "cwd": "${workspaceFolder}"
             },

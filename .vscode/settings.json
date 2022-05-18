@@ -1,3 +1,7 @@
 {
     "python.terminal.activateEnvironment": true,
+    "[makefile]": {
+        "editor.detectIndentation": true,
+        "editor.tabSize": 4
+    }
 }
