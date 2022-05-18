@@ -97,7 +97,7 @@ This project use realtime database to store the personal information. Firebase d
 // --------------- NOTE ------------------
 //  + "company" key : can create many with the name : "company1", "company2", ...
 //  + "job" key : can create many with the name : "job1", "job2", ...
-//  + "start", "emd" key : timestamp
+//  + "start", "end" key : timestamp
 // ---------------------------------------
 "experience": {
     "summary": "",
@@ -124,7 +124,7 @@ This project use realtime database to store the personal information. Firebase d
 //  + "1_text.str" key : can create many with the name : "str1", "str2", ...
 //
 //  + "2_progress" key : can create many with the name : "2_progress1", "2_progress2", ...
-//  + "<key>": "<value>" : key is skill name, value is progress percent. Example: java:70, kotlin:80
+//  + "<key>: <value>" : key is skill name, value is progress percent. Example: java:70, kotlin:80
 //
 //  + "3_tag" key : can create many with the name : "3_tag1", "3_tag2", ...
 //  + "3_tag.value" key : comma-separated values. Example : java, kotlin, dart, swift
@@ -132,9 +132,6 @@ This project use realtime database to store the personal information. Firebase d
 //  + The number in front of "text", "progress", "tag" letter is the display order.
 //  + "text", "progress", "tag" are the name of UI style.
 // ---------------------------------------
-// NOTE
-//    - The number in front of "text", "progress", "tag" letter is the display order.
-//    - "text", "progress", "tag" are the name of UI style.
 "skills": {
     "description": "",
     "1_text": {
@@ -170,7 +167,3 @@ This project use realtime database to store the personal information. Firebase d
     }
 }
 ```
-
-
-
-
