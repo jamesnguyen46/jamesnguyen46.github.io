@@ -12,7 +12,7 @@ a {
 }
 
 a:hover {
-  color: #ff333d;
+  color: #ff99a0;
   text-decoration: none;
 }
 
@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 0;
 }
 .back-to-top:hover {
-  background: #0678e3;
+  background: #ff99a0;
   color: #fff;
 }
 .back-to-top.active {
@@ -368,7 +368,7 @@ section {
 --------------------------------------------------------------*/
 .experience .company {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 .experience .company-name {
   display: flex;
@@ -621,7 +621,7 @@ section {
   transition: 0.3s;
 }
 #footer .social-links a:hover {
-  background: #0678e3;
+  background: #ff99a0;
   color: #fff;
   text-decoration: none;
 }
