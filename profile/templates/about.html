@@ -7,9 +7,13 @@
         </div>
 
         <div class="row">
-
+            
             <div class="col-lg-4">
-                <img src="{{ profile.avatar_url }}" class="img-fluid" alt="">
+                {% if open_to_work %}
+                <img src="{{ profile.avatar_url_open }}" class="img-fluid" alt="{{ profile.info.first_name }}'s avatar">
+                {% else %}
+                <img src="{{ profile.avatar_url }}" class="img-fluid" alt="{{ profile.info.first_name }}'s avatar">
+                {% endif %}
             </div>
 
             <div class="col-lg-8 pt-4 pt-lg-0 content">
@@ -18,24 +22,37 @@
                     <ul>
                         <li>
                             <i class="bi bi-person-lines-fill"></i>
-                            <strong>Vietnamese name:</strong>
+                            <strong>Vietnamese name :</strong>
                             <span>{{ profile.info.vietnamese_name }}</span>
                         </li>
                         <li>
                             <i class="bi bi-calendar3"></i>
-                            <strong>Birthday:</strong>
+                            <strong>Birthday :</strong>
                             <span>{{ profile.info.birthday }}</span>
                         </li>
                         <li>
                             <i class="bi bi-building"></i>
-                            <strong>Location:</strong>
+                            <strong>Location :</strong>
                             <span>{{ profile.info.location }}</span>
                         </li>
                         <li>
                             <i class="bi bi-envelope"></i>
-                            <strong>Email:</strong>
+                            <strong>Email :</strong>
                             <span>{{ profile.info.email }}</span>
                         </li>
+                        {% if open_to_work %}
+                        <li>
+                            <i class="bi bi-filetype-pdf"></i>
+                            <strong>File :</strong>
+                            <a 
+                                target="_blank" 
+                                href="{{ profile.cv_url }}" 
+                                download>
+                                <i class="bi bi-download"></i>
+                                {{ profile.info.vietnamese_name }}
+                            </a>
+                        </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

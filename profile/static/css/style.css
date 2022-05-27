@@ -362,6 +362,9 @@ section {
 .about .content p:last-child {
   margin-bottom: 0;
 }
+.about a {
+  margin-right: 20px;
+}
 
 /*--------------------------------------------------------------
 # Experience
@@ -600,7 +603,8 @@ section {
 #footer p {
   font-size: 15;
   font-style: italic;
-  padding: 0;
+  padding-left: 15px;
+  padding-right: 15px;
   margin: 0 0 40px 0;
 }
 #footer .social-links {

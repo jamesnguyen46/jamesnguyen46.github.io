@@ -40,10 +40,10 @@ FIREBASE_STORAGE_BUCKET=""
 
 This project use realtime database to store the personal information. Firebase database structure as following:
 
-### Page icon
+### Resources
 
 ```json
-"page_icon": {
+"resources": {
     "apple_touch": "",
     "favicon": ""
 }
@@ -53,6 +53,7 @@ This project use realtime database to store the personal information. Firebase d
 
 ```json
 "flags": {
+    "open_to_work": false,
     "show_about_section": true,
     "show_experience_section": true,
     "show_skills_section": true,
@@ -65,6 +66,8 @@ This project use realtime database to store the personal information. Firebase d
 ```json
 "profile": {
     "avatar_url": "",
+    "avatar_url_open": "",
+    "cv_url": "",
     "hero_background": "",
     "whois": "",
     "favorite_quote": {
