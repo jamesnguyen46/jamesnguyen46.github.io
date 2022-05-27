@@ -7,7 +7,7 @@ def index(request):
         request,
         "index.html",
         context={
-            "page_icons": FIREBASE_DATABASE.child("page_icons").get().val(),
+            "resources": FIREBASE_DATABASE.child("resources").get().val(),
             "flags": FIREBASE_DATABASE.child("flags").get().val(),
             "profile": FIREBASE_DATABASE.child("profile").get().val(),
             "experience": FIREBASE_DATABASE.child("experience").get().val(),

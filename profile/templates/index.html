@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block load_resources %}
-    {% include "resources.html" with icons=page_icons %}
+    {% include "resources.html" with icons=resources %}
 {% endblock %}
 
 {% block header %}
@@ -25,11 +25,11 @@
 
 {% block content %}
     {% if flags.show_about_section %}
-        {% include "about.html" with profile=profile %}
+        {% include "about.html" with profile=profile open_to_work=flags.open_to_work %}
     {% endif %}
 
     {% if flags.show_experience_section %}
-        {% include "experience.html" with profile=profile experience=experience%}
+        {% include "experience.html" with profile=profile experience=experience %}
     {% endif %}
 
     {% if flags.show_skills_section %}
