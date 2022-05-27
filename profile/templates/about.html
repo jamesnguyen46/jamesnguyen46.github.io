@@ -7,7 +7,7 @@
         </div>
 
         <div class="row">
-            
+
             <div class="col-lg-4">
                 {% if open_to_work %}
                 <img src="{{ profile.avatar_url_open }}" class="img-fluid" alt="{{ profile.info.first_name }}'s avatar">
@@ -44,9 +44,9 @@
                         <li>
                             <i class="bi bi-filetype-pdf"></i>
                             <strong>File :</strong>
-                            <a 
-                                target="_blank" 
-                                href="{{ profile.cv_url }}" 
+                            <a
+                                target="_blank"
+                                href="{{ profile.cv_url }}"
                                 download>
                                 <i class="bi bi-download"></i>
                                 {{ profile.info.vietnamese_name }}
