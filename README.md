@@ -2,7 +2,7 @@
 
 A Github Page for James Nguyen.
 
-## Tech stack
+## Library
 
 - [Django](https://docs.djangoproject.com/)
 - [Pyrebase](https://github.com/thisbejim/Pyrebase)
@@ -53,7 +53,6 @@ This project use realtime database to store the personal information. Firebase d
 
 ```json
 "flags": {
-    "open_to_work": false,
     "show_about_section": true,
     "show_experience_section": true,
     "show_skills_section": true,
@@ -64,24 +63,29 @@ This project use realtime database to store the personal information. Firebase d
 ### Profile
 
 ```json
+// --------------- NOTE ------------------
+//  + Use "extra_info" to show the additional information such as email, location, birthday...
+//  + "1" key : can create many with the name : "1", "2", ...]
+// ---------------------------------------
 "profile": {
-    "avatar_url": "",
-    "avatar_url_open": "",
-    "cv_url": "",
     "hero_background": "",
-    "whois": "",
     "favorite_quote": {
         "author": "",
         "quote": ""
     },
     "info": {
-        "birthday": "",
-        "email": "",
+        "avatar_url": "",
+        "whois": "",
         "first_name": "",
         "last_name": "",
-        "vietnamese_name": "",
         "job_title": "",
-        "location": "",
+    },
+    "extra_info": {
+        "1": {
+            "css_class": "",
+            "name": "",
+            "value": ""
+        }
     },
     "social_links": {
         "facebook": "",
