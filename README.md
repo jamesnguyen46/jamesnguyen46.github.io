@@ -64,7 +64,8 @@ This project use realtime database to store the personal information. Firebase d
 
 ```json
 // --------------- NOTE ------------------
-//  + "1" key : can create many with the name : "1", "2", ...
+//  + Use "extra_info" to show the additional information such as email, location, birthday...
+//  + "1" key : can create many with the name : "1", "2", ...]
 // ---------------------------------------
 "profile": {
     "hero_background": "",
