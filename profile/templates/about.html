@@ -9,50 +9,25 @@
         <div class="row">
 
             <div class="col-lg-4">
-                {% if open_to_work %}
-                <img src="{{ profile.avatar_url_open }}" class="img-fluid" alt="{{ profile.info.first_name }}'s avatar">
-                {% else %}
-                <img src="{{ profile.avatar_url }}" class="img-fluid" alt="{{ profile.info.first_name }}'s avatar">
-                {% endif %}
+                <img
+                    src="{{ profile.info.avatar_url }}"
+                    class="img-fluid"
+                    alt="{{ profile.info.first_name }}'s avatar">
             </div>
 
             <div class="col-lg-8 pt-4 pt-lg-0 content">
                 <h3>{{ profile.info.job_title }}</h3>
                 <div class="col-lg-6" style="margin-top: 20px;">
                     <ul>
+                        {% for key, extra in profile.extra_info.items %}
+                        {% if extra.css_class and extra.name and extra.value %}
                         <li>
-                            <i class="bi bi-person-lines-fill"></i>
-                            <strong>Vietnamese name :</strong>
-                            <span>{{ profile.info.vietnamese_name }}</span>
-                        </li>
-                        <li>
-                            <i class="bi bi-calendar3"></i>
-                            <strong>Birthday :</strong>
-                            <span>{{ profile.info.birthday }}</span>
-                        </li>
-                        <li>
-                            <i class="bi bi-building"></i>
-                            <strong>Location :</strong>
-                            <span>{{ profile.info.location }}</span>
-                        </li>
-                        <li>
-                            <i class="bi bi-envelope"></i>
-                            <strong>Email :</strong>
-                            <span>{{ profile.info.email }}</span>
-                        </li>
-                        {% if open_to_work %}
-                        <li>
-                            <i class="bi bi-filetype-pdf"></i>
-                            <strong>File :</strong>
-                            <a
-                                target="_blank"
-                                href="{{ profile.cv_url }}"
-                                download>
-                                <i class="bi bi-download"></i>
-                                {{ profile.info.vietnamese_name }}
-                            </a>
+                            <i class="{{ extra.css_class }}"></i>
+                            <strong>{{ extra.name }} :</strong>
+                            <span>{{ extra.value|safe }}</span>
                         </li>
                         {% endif %}
+                        {% endfor %}
                     </ul>
                 </div>
             </div>

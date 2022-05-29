@@ -1,8 +1,8 @@
 <section id="hero" style='background: url("{{ profile.hero_background }}") top right no-repeat;'>
     <div class="container h-100 d-flex flex-column justify-content-center" data-aos="zoom-in" data-aos-delay="100">
         <h1>{{ profile.info.first_name }} {{ profile.info.last_name }}</h1>
-        {% if profile.whois %}
-        <p>I'm <span class="typed" data-typed-items="{{ profile.whois }}"></span></p>
+        {% if profile.info.whois %}
+        <p>I'm <span class="typed" data-typed-items="{{ profile.info.whois }}"></span></p>
         {% endif %}
         {% if profile.social_links %}
         <div class="social-links">
