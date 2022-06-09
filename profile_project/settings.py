@@ -78,12 +78,23 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-
 FIREBASE_CONFIG = {
     "apiKey": env.get("FIREBASE_API_KEY"),
     "authDomain": env.get("FIREBASE_AUTH_DOMAIN"),
     "databaseURL": env.get("FIREBASE_DATABASE_URL"),
     "storageBucket": env.get("FIREBASE_STORAGE_BUCKET"),
+    "serviceAccount": {
+        "type": "service_account",
+        "project_id": env.get("FIREBASE_PROJECT_ID"),
+        "private_key_id": env.get("FIREBASE_PRIVATE_KEY_ID"),
+        "private_key": env.get("FIREBASE_PRIVATE_KEY").replace("\\n", "\n"),
+        "client_email": env.get("FIREBASE_CLIENT_EMAIL"),
+        "client_id": env.get("FIREBASE_CLIENT_ID"),
+        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+        "token_uri": "https://accounts.google.com/o/oauth2/token",
+        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+        "client_x509_cert_url": env.get("FIREBASE_CLIENT_CERT_URL"),
+    },
 }
 FIREBASE = pyrebase.initialize_app(FIREBASE_CONFIG)
 FIREBASE_AUTH = FIREBASE.auth()
