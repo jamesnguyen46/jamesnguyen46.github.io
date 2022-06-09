@@ -1,7 +1,6 @@
 ifneq (,$(wildcard dev.env))
 include dev.env
-VARS:=$(shell sed -ne 's/ *\#.*$$//; /./ s/=.*$$// p' dev.env )
-$(foreach v,$(VARS),$(eval $(shell echo export $(v)="$($(v))")))
+export
 endif
 
 SHELL := /bin/bash
