@@ -6,7 +6,7 @@ authors = ["jamesnguyen46 <thachnguyen1989@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-Django = "4.0.4"
+Django = "4.0.5"
 django-distill = "2.9.2"
 Pyrebase4 = "^4.5.0"
 
